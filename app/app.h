@@ -3,8 +3,7 @@
 #include <iostream>
 #include <sstream>
 
-namespace vsite::oop::v1
-{
+namespace vsite::oop::v1 {
 /*
 * function declarations
 */

@@ -1,6 +1,5 @@
 #include "app.h"
 #include <format>
-#include <sstream>
 
 namespace vsite::oop::v1
 {
@@ -8,16 +7,7 @@ namespace vsite::oop::v1
 	* function implementations
 	*/
 	std::string to_hex(int n) {
-		std::string hex_chars = "0123456789ABCDEF";
-		if (n == 0) return "0";
-		std::string result;
-		while (n > 0) {
-			int remainder = n % 16;
-			result = hex_chars[remainder] + result; // [] -> pointer, mozemo zbrajat sa pointerima ovjde, micemo ga za +result
-			n /= 16;
-		}
-
-		return result;
+		return std::format("{:X}", n);
 	}
 
 	std::string to_exp(double d) {
@@ -26,9 +16,12 @@ namespace vsite::oop::v1
 		// individualno izracinati sve djelove i spojiti u string
 	}
 
-	std::stringstream& mult_table(int n, std::stringstream& ss) {
+	void mult_table(int n, std::ostream& ss) {
 		// testiranje za 0 ili >20, u testu nemaju - brojevi 
-		if (n == 0 || n > 20) { ss.str(""); return ss;}
+		if (n == 0 || n > 20) {
+			ss << "";
+			return;
+		}
 
 		//tablica ima n+1 redaka i stupaca
 
@@ -46,15 +39,15 @@ namespace vsite::oop::v1
 					else if (j == 0) result = i; 
 					else result = i * j; 
 				*/
-				std::string gap = (result < 10) ? "   " : (result < 100) ? "  " : " "; // if u if, prvo neisitna pa istina.
-				if (j <= n && j != 0) ss << gap; // razmak izmedu brojeva, ne na kraju reda
-				ss << result;
+				
+				if (j <= n && j != 0) 
+					ss << std::format("{:>4}", result); // razmak izmedu brojeva, ne na kraju reda
+				else
+					ss << result;
 			}
 			ss << "\n"; // novi red na kraju
 		}
-		
-		// Finalna tablica 
-		return ss;
+		;;
 	}
 	
 } // namespace

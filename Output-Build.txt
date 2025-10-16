@@ -1,0 +1,6 @@
+﻿Build started at 01:36...
+1>------ Build started: Project: app, Configuration: Debug x64 ------
+1>app.cpp
+1>app.vcxproj -> C:\Users\Petar\source\repos\v01\x64\Debug\app.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+========== Build completed at 01:36 and took 01.106 seconds ==========

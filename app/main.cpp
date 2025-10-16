@@ -1,6 +1,8 @@
 #include "app.h"
 #include <format>
+#include <iostream>
 #include <sstream>
+#include <fstream>
 
 // input one integer
 // write its hex representation to std::cout (using vsite::oop::v1::to_hex)
@@ -16,7 +18,6 @@ int main()
 
 	std::cout << "\n";
 
-	std::stringstream ss;
-	vsite::oop::v1::mult_table(nekiBroj, ss);
-	std::cout << ss.str();
+	vsite::oop::v1::mult_table(nekiBroj, std::cout);
 }
+		
